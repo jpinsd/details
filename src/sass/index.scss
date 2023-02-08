@@ -21,9 +21,8 @@ summary {
   display: list-item;
 }
 
-details.arrow {
+details.icon {
   &.-right {
-
     summary {
       list-style: none;
       display: inline-flex;
@@ -43,10 +42,52 @@ details.arrow {
         color: var(--cta);
       }
     }
-  &[open] summary::after {
-    content: '\00d7';
+    &[open] summary::after {
+      content: '\00d7';
+    }
   }
 
+  &.-animated {
+    summary {
+      list-style: none;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &::marker,
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: '\002B';
+        margin-left: .5rem;
+        font-size: 1.75em;
+        color: var(--cta);
+        transform: rotate(0deg);
+        transition: all 1s;
+      }
+    }
+
+    &[open] summary::after {
+        transform: rotate(225deg);
+    }
+  }
+}
+
+
+
+details.arrow {
+  &.-right {
+    summary {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      align-items: center;
+      gap: .5em;
+      max-width: max-content;
+    }
   }
 }
 
