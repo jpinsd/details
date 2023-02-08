@@ -10,3 +10,43 @@ main {
 
   background: var(--content-background);
 }
+
+details {
+  cursor: pointer;
+
+  margin-bottom: 2rem;
+}
+
+summary {
+  display: list-item;
+}
+
+details.arrow {
+  &.-right {
+
+    summary {
+      list-style: none;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &::marker,
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: '\002B';
+        margin-left: .5rem;
+        font-size: 1.15em;
+        color: var(--cta);
+      }
+    }
+  &[open] summary::after {
+    content: '\00d7';
+  }
+
+  }
+}
+
